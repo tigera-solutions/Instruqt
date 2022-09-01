@@ -1,6 +1,6 @@
 ---
 slug: connect-cluster
-id: keqwxtckrn5b
+id: wythhxncbdvz
 type: challenge
 title: Connect Kubernetes cluster to Calico Cloud
 teaser: Let’s get your tools in place

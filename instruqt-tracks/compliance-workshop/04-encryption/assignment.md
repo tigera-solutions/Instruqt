@@ -1,6 +1,6 @@
 ---
 slug: encryption
-id: yiqvlsoflogn
+id: d1ycx6qayjoh
 type: challenge
 title: Encrypt data in transit
 teaser: Secure data in transit for your application with WireGuard

@@ -1,6 +1,6 @@
 ---
 slug: reports-visualization
-id: x1mlzkimgxcf
+id: fuvyyjqvbwsz
 type: challenge
 title: Observe activities and interactions within the cluster
 teaser: Get more real-time insights with Dynamic Service and Threat Graph, Flow Visualizer,  and

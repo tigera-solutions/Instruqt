@@ -1,6 +1,6 @@
 ---
 slug: security-policies
-id: aczv00f906lb
+id: owgmpcb4b2bw
 type: challenge
 title: Create security policies
 teaser: Apply security policies to restrict access based on compliance requirements

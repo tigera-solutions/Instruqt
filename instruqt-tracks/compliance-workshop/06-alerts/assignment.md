@@ -1,6 +1,6 @@
 ---
 slug: alerts
-id: yixqczysvilz
+id: gi5n4d4cj2or
 type: challenge
 title: Setup alerts and notifications
 teaser: Get notified about suspicious activities and unsanctioned changes in real-time
