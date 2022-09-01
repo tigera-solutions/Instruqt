@@ -1,0 +1,26 @@
+slug: compliance-workshop
+id: drn6zqtds2kb
+type: track
+title: Self-paced Compliance Workshop for Containers and Kubernetes
+teaser: How to become PCI and SOC 2 compliant with Calico Cloud
+description: |
+  In this workshop, you will learn how to design and deploy best practices to secure your containers and Kubernetes environment. We will also show you how you can achieve compliance with regulatory frameworks, including but not limited to, PCI, SOC 2 and GDPR. In this workshop, you will implement:
+
+    - Configuration security, including Kubernetes Security Posture Management (KSPM)
+    - Security policies for compliance
+    - Compliance audit and reports
+
+  This workshop comes with your own provisioned demo application and Calico Cloud environment for 24 hours.
+
+   Let's get started.
+icon: https://cdn.instruqt.com/assets/templates/kubernetes.png
+level: beginner
+tags:
+- ""
+owner: tigera
+developers:
+- joseph@tigera.io
+- dhiraj@tigera.io
+private: true
+published: false
+checksum: "1510986858378990691"
