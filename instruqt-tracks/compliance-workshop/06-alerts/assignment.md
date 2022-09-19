@@ -1,6 +1,6 @@
 ---
 slug: alerts
-id: yixqczysvilz
+id: gi5n4d4cj2or
 type: challenge
 title: Setup alerts and notifications
 teaser: Get notified about suspicious activities and unsanctioned changes in real-time
@@ -21,15 +21,15 @@ Alerts
 
 Calico supports global alerts to notify security and operations teams about unsanctioned or suspicious activity.
 
-Alerts can be configured either through the CLI or through the Calico Cloud. In this section, we will configure 3 different alerts:
+Alerts can be configured either through the CLI or through Calico Cloud. In this section, we will configure 3 different alerts:
 
 - Alerts on configuration change
-- Alerts on restricted dns access
+- Alerts on restricted DNS access
 - Alerts on unsanctioned lateral movement
 
-Configuration change alert
+Configuration Change Alert
 ===============
-Generates an alert on any changes to global network sets
+- Generates an alert on any changes to global network sets.
 
 ```bash
 kubectl apply -f -<<\EOF
@@ -53,7 +53,7 @@ spec:
 EOF
 ```
 
-To trigger this alert, create a new `Networkset` or edit any of the existing ones
+- To trigger this alert, create a new `Networkset` or edit any of the existing ones.
 
 ```bash
 kubectl apply -f -<<\EOF
@@ -70,9 +70,9 @@ EOF
 ```
 
 
-Restricted DNS access alert
+Restricted DNS Access Alert
 ===============
-Generates an alert when a pod attempts to access restricted domains
+- Generates an alert when a pod attempts to access restricted domains.
 
 ```bash
 kubectl apply -f -<<\EOF
@@ -95,16 +95,16 @@ spec:
 EOF
 ```
 
-To trigger this alert, go ahead and generate some traffic from multitool pod to google.com
+- To trigger this alert, generate some traffic from the multitool pod to google.com
 
 ```bash
 kubectl -n hipstershop exec -t multitool -- sh -c 'ping -c 3 google.com'
 ```
 
-Unsanctioned lateral movement alert
+Unsanctioned Lateral Movement Alert
 ===============
 
-Generates an alert when pods with a specific label (`security=strict`) is accessed by other workloads from other namespaces
+- Generates an alert when pods with a specific label (`security=strict`) are accessed by other workloads from other namespaces.
 
 ```bash
 kubectl apply -f -<<\EOF
@@ -128,25 +128,25 @@ spec:
 EOF
   ````
 
-To trigger this alert, first, label the pod in the `hipstershop` namespace with the label `security=strict`
+- To trigger this alert, first, label the pod in the `hipstershop` namespace with the label `security=strict`.
 
 ```bash
 kubectl label pods --all -n hipstershop security=strict
 ```
 
-Then, try to reach out to any of `hipstershop` microservices from the `default` namespace
+- Then, try to reach out to any of the `hipstershop` microservices from the `default` namespace.
 
 ```bash
 kubectl exec -t multitool -- sh -c 'curl -I frontend.hipstershop 2>/dev/null | grep -i http'
 ```
 
-Now, go to Calico Cloud and check the alerts under **Activity** page
+- Now, go to Calico Cloud and check the alerts under the **Activity** page.
 
-Review the configured alerts
+- Review the configured alerts.
 
 ![Image Description](../assets/alerts-configuration.png)
 
-Review the triggered alerts under the **Alerts** list
+- Review the triggered alerts under the **Alerts** list.
 
 ![Image Description](../assets/alerts-list.png)
 
