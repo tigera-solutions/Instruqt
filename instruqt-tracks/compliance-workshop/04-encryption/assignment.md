@@ -16,10 +16,10 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-Encrypt data in transit
+Encrypt Data in Transit
 ===============
 
-Calico Cloud provides WireGuard to secure on the-wire, in-cluster pod traffic.
+Calico Cloud provides WireGuard to secure on-the-wire, in-cluster pod traffic.
 
 When this capability is enabled, Calico Cloud will automatically create and manage WireGuard tunnels between nodes, providing transport-level security for on-the-wire, in-cluster pod traffic for your demo application. WireGuard provides formally verified and secure performant tunnels without any specialized hardware.
 
@@ -29,13 +29,13 @@ Install WireGuard
 
 Before enabling end-to-end encryption with Calico, you must first install WireGuard. In this lab, WireGuard is installed by default.
 
-Test it to ensure that the Wireguard module is loaded using the following command:
+- Let's test it to ensure that the Wireguard module is loaded using the following command:
 
 ```bash
 sudo lsmod | grep wireguard
 ```
 
-The output should look something like this:
+- The output should look something like this:
 
 ```bash
 root@controlplane:~# sudo lsmod | grep wireguard
@@ -44,22 +44,22 @@ ip6_udp_tunnel         16384  2 wireguard,vxlan
 udp_tunnel             16384  2 wireguard,vxlan
 ```
 
-Enable end-to-end encryption
+Enable End-to-End Encryption
 ===============
 
-To enable end-to-end encryption, we will patch the `felixconfiguration` with the `wireguardEnabled` option.
+- To enable end-to-end encryption, we will patch the `felixconfiguration` with the `wireguardEnabled` option.
 
 ```bash
 kubectl patch felixconfiguration default --type='merge' -p '{"spec":{"wireguardEnabled":true}}'
 ```
 
-To validate, you will need to check the node status for WireGuard entries with the following command:
+- To validate, you will need to check the node status for WireGuard entries with the following command:
 
 ```bash
 kubectl get nodes -o yaml | grep 'kubernetes.io/hostname\|Wireguard'
 ```
 
-It will give you the following output, showing the node’s host name as well as the WireGuard Interface Address and PublicKey:
+- It will give you the following output, showing the node’s host name as well as the WireGuard Interface Address and PublicKey:
 
 ```bash
 root@controlplane:~# kubectl get nodes -o yaml | grep 'kubernetes.io/hostname\|Wireguard'
@@ -71,7 +71,7 @@ root@controlplane:~# kubectl get nodes -o yaml | grep 'kubernetes.io/hostname\|W
       kubernetes.io/hostname: node01
 ```
 
-On your node, you can also view the new interface created by WireGuard with the ```wg``` command:
+- On your node, you can also view the new interface created by WireGuard with the ```wg``` command:
 
 ```bash
 ubuntu@ip-10-0-1-30:~$ wg
@@ -94,7 +94,7 @@ peer: lDSws3G/G1KP76BGGRpVSXBnTt5N6FCqOodzTUUWs0I=
   transfer: 23.64 MiB received, 13.21 MiB sent
 ```
 
-View WireGuard statistics
+View WireGuard Statistics
 ===============
 To view WireGuard statistics in Calico Cloud's dashboard, you must enable them. From the left navigation bar, click **Dashboard**, and then the **Layout Settings** icon.
 

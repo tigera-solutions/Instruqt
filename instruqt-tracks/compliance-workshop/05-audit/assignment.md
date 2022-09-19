@@ -16,7 +16,7 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-Audit logs
+Audit Logs
 ===============
 
 Calico Cloud audit logs provide security, platform, and DevOps teams and auditors historical data of all changes to the resources over time.
@@ -33,12 +33,12 @@ Calico audit logs are enabled by default for the following resources:
 - Tiers
 - Host endpoints
 
-Audit timeline
+Audit Timeline
 ===============
 
 Audit logs are accessible through Calico Cloud directly with the Timeline feature. To view these logs:
 
-1. Open the **Timeline** page from the left navigation menu.
+1. Click on **Activity** from the left navigation menu, then select **Timeline**.
 
 ![Image Description](../assets/menu.png)
 
@@ -50,17 +50,17 @@ Audit logs are accessible through Calico Cloud directly with the Timeline featur
 - Audit Filter
 ![Image Description](../assets/timeline-filter.png)
 
-3. Audit Events contain the affected policy, the user who made the change and the manifest of the updated policy.
+3. Audit Events contain the affected policy, the user who made the change, and the manifest of the updated policy.
 ![Image Description](../assets/policy-audit.png)
 
-Policy Audit inside of policy
+Policy Audit inside of Policy
 ===============
 
 Within each policy, there is a Change Log that allows you to see the audit entries for the specific policy you are currently viewing.
 
 To access this information,
 
-1. Open a Policy from from the Policies page and scroll down to the Change Log section.
+1. Open a Policy from the Policies page and scroll down to the Change Log section.
 ![Image Description](../assets/policy-history.png)
 
 2. Click on the **diff** button on an Audit Event to expand the details of that event.
@@ -69,15 +69,16 @@ To access this information,
 3. To view changes in detail, click the **split view** checkbox in the top-right to bring up a side-by-side comparison of the two versions.
 ![Image Description](../assets/policy-diff.png)
 
-Archive logs
+Archive Logs
 ===============
 
-Logs can be exported to an external SIEM, such as Splunk, syslog, or Amazon S3. For further information, see archive logs section in [Calico documentaion.](https://docs.tigera.io/visibility/elastic/archive-storage)
+Logs can be exported to an external security incident and event management (SIEM), such as Splunk, syslog, or Amazon S3. For further information, see the archive logs section in [Calico documentaion.](https://docs.tigera.io/visibility/elastic/archive-storage)
 
-Compliance reports
+Compliance Reports
 ===============
 
 Using the **Compliance Reports** tab of Calico Cloud, you can create a number of reports to satisfy various PCI DSS, SOC 2, GDPR, and other internal organization compliance reporting requirements.
+
 Calico Cloud supports the following built-in report types:
 
 - Inventory
@@ -87,19 +88,20 @@ Calico Cloud supports the following built-in report types:
 
 We have already scheduled some reports to run daily.
 
-Check `GlobalReports` in your environment
+- Check `GlobalReports` in your environment.
 
 ```bash
 kubectl get globalreports
 ```
 
-For the purpose of this workshop, we will run these reports manually using the following script:
+- For the purpose of this workshop, we will run these reports manually using the following script:
 
 ```bash
 ./run-reports.sh
 ```
 
-To view the generated reports in Calico Cloud, click on **Compliance** from the left menu. You also export these reports.
+- To view the generated reports in Calico Cloud, click on **Compliance** from the left menu.
+- You can also export these reports.
 
 ![Image Description](../assets/reports.png)
 
