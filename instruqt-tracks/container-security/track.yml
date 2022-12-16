@@ -1,6 +1,6 @@
 slug: container-security
 id: q0una7vbyzrr
-title: Container Security
+title: Self-paced Container Security Workshop
 teaser: Secure all aspects of your containerized applications.
 description: |
   In this workshop, you will learn how to protect all aspects of container-based applications including the CI/CD pipeline, Kubernetes infrastructure, container runtime and workloads, you will implement:
