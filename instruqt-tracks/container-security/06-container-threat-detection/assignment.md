@@ -27,11 +27,9 @@ Enable container threat detection
 
 Container threat detection is disabled by default. Let's enable it.
 
-- Enable on all nodes
+- To enable Container threat detection on your managed cluster, go to the **Threat Defence section** in the Calico Cloud UI, and select **Enable Container Threat Detection**.
 
-```bash
-kubectl get ds runtime-reporter -n calico-system -o yaml | sed '/enable-tigera-runtime-security/d' | kubectl apply -f -
-```
+![Image Description](../assets/enable-container-threat-detection.png)
 
 - Change the default aggregation period
 
