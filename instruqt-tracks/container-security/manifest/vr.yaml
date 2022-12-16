@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: virtualreality
+  namespace: hipstershop
+spec:
+  selector:
+    matchLabels:
+      app: virtualreality
+  template:
+    metadata:
+      labels:
+        app: virtualreality
+    spec:
+      containers:
+      - name: server
+        image: myappimages.azurecr.io/virtualreality:latest
