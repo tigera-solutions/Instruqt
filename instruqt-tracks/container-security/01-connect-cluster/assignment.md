@@ -41,7 +41,7 @@ tabs:
   url: https://www.calicocloud.io/home
   new_window: true
 difficulty: basic
-timelimit: 15000
+timelimit: 900
 ---
 Welcome to Tigera's self-paced workshops. As part of this workshop, we will provide you with a Calico Cloud trial account! This account will automatically terminate after 24 hours.
 
