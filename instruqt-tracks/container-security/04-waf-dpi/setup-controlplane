@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Enable the Policy Sync API in Felix for WAF
+kubectl patch felixconfiguration default --type='merge' -p '{"spec":{"policySyncPathPrefix":"/var/run/nodeagent"}}'
+
+
+#Configure ApplicationLayer CRD
+kubectl apply -f https://raw.githubusercontent.com/JosephYostos/test-repo/main/enable-waf.yaml
+
+#configure alerts for waf
+kubectl apply -f https://raw.githubusercontent.com/JosephYostos/test-repo/main/waf-alerts.yaml
+
+#configre waf rules
+mkdir my-ruleset && cd my-ruleset
+curl -O https://raw.githubusercontent.com/JosephYostos/test-repo/main/CVE-2021-44228-LOG4J-REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+curl -O https://raw.githubusercontent.com/lsgroup/SmartReverseProxy/master/modsecdefault.conf
+curl https://raw.githubusercontent.com/coreruleset/coreruleset/v3.3/dev/crs-setup.conf.example > crs-setup.conf
+sed -i "96,97s/pass/deny/" crs-setup.conf
+kubectl create cm --dry-run --from-file=. -o yaml -n tigera-operator modsecurity-ruleset > ../my-ruleset.yaml
+kubectl replace -f ../my-ruleset.yaml

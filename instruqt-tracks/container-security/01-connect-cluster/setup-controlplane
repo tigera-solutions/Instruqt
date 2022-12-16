@@ -1,0 +1,11 @@
+#!/bin/bash
+# Deploy Hipstershop and multitool
+sleep 5
+kubectl create namespace hipstershop
+kubectl apply -n hipstershop -f https://raw.githubusercontent.com/tigera-solutions/cnapp-workshop/main/demo/app/hipstershop_v0.3.2.yaml
+sleep 5
+#kubectl run multitool -n hipstershop --image=wbitt/network-multitool
+kubectl create ns dev
+kubectl run vr-dev -n dev --image myappimages.azurecr.io/virtualreality:latest -l app=vr
+kubectl expose -n dev pod vr-dev --port=80 --target-port=8080
+kubectl run multitool -n dev --image=wbitt/network-multitool

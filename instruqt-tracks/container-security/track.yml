@@ -1,0 +1,26 @@
+slug: container-security
+id: q0una7vbyzrr
+title: Container Security
+teaser: Secure all aspects of your containerized applications.
+description: |
+  In this workshop, you will learn how to protect all aspects of container-based applications including the CI/CD pipeline, Kubernetes infrastructure, container runtime and workloads, you will implement:
+
+    - Reduce risks with vulnerability management
+    - Stop lateral movement with microsegmentation
+    - Stop C&C attacks with zero-trust workload access controls
+    - Detect zero-day attacks with ML-based anomaly detection
+
+
+  For use during the workshop, you will be given access to a provisioned Kubernetes cluster, demo application and Calico Cloud environment for 24 hours.
+
+   Let's get started.
+icon: https://cdn.instruqt.com/assets/templates/kubernetes.png
+level: beginner
+tags:
+- ""
+- prod
+owner: tigera
+developers:
+- dhiraj@tigera.io
+- joseph@tigera.io
+checksum: "9563382715960664263"
