@@ -40,7 +40,7 @@ In order to expedite testing we will reduce this to 15 seconds
 
 ```bash
 kubectl -n tigera-runtime-security annotate daemonset runtime-reporter unsupported.operator.tigera.io/ignore="true"
-kubectl -n tigera-runtime-security get daemonset.apps/runtime-reporter -o yaml | sed 's/15m/15s/g' | kubectl apply -f -
+kubectl -n tigera-runtime-security get daemonset.apps/runtime-reporter -o yaml | sed 's/15m/1m/g' | kubectl apply -f -
 ```
 
 
