@@ -36,7 +36,7 @@ Container threat detection is disabled by default. Let's enable it.
 The default configuration of the runtime-reporter has an Aggregation period of 15 minutes [period: 15m].
 In order to expedite testing we will reduce this to 15 seconds
 
-**NOTE:  These changes are for demonstration purposes only and should not be used in a production environment without consulting the support team.**
+**NOTE: These changes are for demonstration purposes only and should not be used in a production environment without consulting the support team.**
 
 ```bash
 kubectl -n tigera-runtime-security annotate daemonset runtime-reporter unsupported.operator.tigera.io/ignore="true"
