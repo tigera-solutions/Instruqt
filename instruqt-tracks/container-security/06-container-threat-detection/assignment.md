@@ -126,4 +126,4 @@ kubectl label pod maliciouspod quarantine=true
 
 🏁 Finish
 ============
-Click **Finish** to complete the workshop.
+Click **Next** to complete the workshop.
