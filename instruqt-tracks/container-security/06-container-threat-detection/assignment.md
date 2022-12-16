@@ -37,7 +37,7 @@ The default configuration of the runtime-reporter has an Aggregation period of 1
 In order to expedite testing we will reduce this to 15 seconds
 
 ```bash
-kubectl -n calico-system get daemonset.apps/runtime-reporter -o yaml | sed 's/15m/15s/g' | kube^Cl apply -f -
+kubectl -n calico-system get daemonset.apps/runtime-reporter -o yaml | sed 's/15m/15s/g' | kubectl apply -f -
 ```
 
 
