@@ -1,7 +1,7 @@
 #!/bin/bash
 
 kubectl delete ContainerAdmissionPolicy reject-failed
-kubectl apply -f vr.yaml 
+kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/Instruqt/main/instruqt-tracks/container-security/manifest/vr.yaml
 sleep 5
 for i in {1..5}; do kubectl -n hipstershop exec -it $(kubectl -n hipstershop get po -l app=virtualreality -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -sI frontend 2>/dev/null | grep -i http'; sleep 1; done
 
