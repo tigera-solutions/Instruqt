@@ -3,7 +3,7 @@ slug: container-threat-detection
 id: awnosylrjnfj
 type: challenge
 title: Checking for suspicious process names and args
-teaser: Leverages eBPF to monitor the syscalls occurring in the cluster.
+teaser: Leverage eBPF to monitor syscalls occurring in the cluster.
 notes:
 - type: image
   url: ../assets/module05.png
@@ -19,8 +19,7 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-
-Calico Cloud provides a threat detection engine that analyzes observed file and process activity to detect known malicious and suspicious activity.
+Calico Cloud provides a threat detection engine that analyzes observed files and process activities to detect known malicious threats and suspicious activities.
 
 Enable container threat detection
 ================
@@ -33,8 +32,7 @@ Container threat detection is disabled by default. Let's enable it.
 
 - Change the default aggregation period
 
-The default configuration of the runtime-reporter has an Aggregation period of 15 minutes [period: 15m].
-In order to expedite testing we will reduce this to 15 seconds
+The default configuration of the runtime-reporter has an aggregation period of 15 minutes [period: 15m]. In order to expedite testing, we will reduce this to 15 seconds.
 
 **NOTE: These changes are for demonstration purposes only and should not be used in a production environment without consulting the support team.**
 
@@ -47,18 +45,18 @@ kubectl -n tigera-runtime-security get daemonset.apps/runtime-reporter -o yaml |
 Triggering malicious activity
 ================
 
-Calico Cloud detects threats across the entire killchain. This example will focus on privilege-escalation tactics like Linux-Administrative-Command and Set-Linux-Capabilities, in addition to executing some attack tools as part of the execution stage.
+Calico Cloud detects threats across the entire killchain. This example will focus on privilege escalation tactics like Linux-Administrative-Command and Set-Linux-Capabilities, in addition to executing some attack tools as part of the execution stage.
 
-Linux-Administrative-Command: A pod was detected executing Linux administrative commands using super-user privileges.
-Set-Linux-Capabilities: A pod was detected executing commands on the system to modify a file, user, or group capabilities
+Linux-Administrative-Command: A pod was detected executing Linux administrative commands using superuser privileges.
+Set-Linux-Capabilities: A pod was detected executing commands on the system to modify a file, user, or group capabilities.
 
-- Let's start with deploying a testing pod.
+- Let's start by deploying a test pod.
 
 ```bash
 kubectl run multitool --image=wbitt/network-multitool
 ```
 
-- Now, it's time to execute suspicious processes and activity inside the container.
+- Now, it's time to execute suspicious processes and activities inside the container.
 
 ```bash
 kubectl exec -it multitool -- bash
@@ -86,16 +84,16 @@ setcap cap_net_raw+ep file.txt
 nmap -Pn -r -p 1-900 $POD_IP
 ```
 
-- View alerts in Calico Cloud UI. From the left panel, click on **Activity**, then click on **Alerts**.
+- View the alerts in Calico Cloud UI. From the left panel, click on **Activity**, then click on **Alerts**.
 
 ![Image Description](../assets/runtime-alert.png)
 
 Quarantine suspicious workload
 ================
 
-Once you get an alert and are sure this is not a legitimate activity, you may need to quarantine this pod using Calico security policy.
+Once you get an alert and you are sure this is not a legitimate activity, you may need to quarantine this pod using a Calico security policy.
 
-- A best practice is always to have a quarantine policy preconfigured in each cluster.
+- A best practice is to always have a quarantine policy preconfigured in each cluster.
 
 ```bash
 kubectl create -f - <<EOF
@@ -118,7 +116,7 @@ spec:
     - Egress
 EOF
 ```
-- Now, you can quickly quarantine the malicious workload by adding the label "quarantine=true", here is an example:
+- Now, you can quickly quarantine the malicious workload by adding the label `quarantine=true` Here is an example:
 
 ```bash
 kubectl label pod maliciouspod quarantine=true
