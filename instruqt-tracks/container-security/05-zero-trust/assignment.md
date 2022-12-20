@@ -110,7 +110,7 @@ Global Policies
 
 💡*Global* Network policies is not a namespaced resource, it applies to the whole cluster.
 
-After creating the tiers, apply some general global policies before creating application-specific ones. These policies include allowing traffic to `kube-dns` from all pods, passing traffic that doesn't explicitly match in the tier.
+After creating the tiers, apply some general global policies before creating application-specific ones. These policies include allowing traffic to `kube-dns` from all pods, passing traffic that doesn't explicitly match in the tier, and finally a `default deny` policy.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/tigera-solutions/Instruqt/main/instruqt-tracks/container-security/manifest/5-global-policy.yaml
@@ -122,6 +122,8 @@ Now go to Calico Cloud and check the created policies under each tier.
 
 Policy Recommender
 ================
+One of the global policies we created in the previous step is `default-deny`. Thus, we should explicitly define the allowed traffic. Otherwise, all traffic will be blocked.
+
 A good starting point is to ask Calico for some recommendations. Calico’s Policy Recommender inspects flows with an `allow` action between endpoints and generates a recommended policy accordingly, eliminating a significant amount of manual work.
 
 - But before we start, let's test the connectivity between the `virtualreality` service and the `frontend` service
