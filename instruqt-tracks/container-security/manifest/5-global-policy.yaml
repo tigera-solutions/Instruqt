@@ -94,3 +94,20 @@ spec:
   types:
     - Ingress
     - Egress
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: default.default-deny
+spec:
+  tier: default
+  order: 0
+  selector: ""
+  namespaceSelector: ""
+  serviceAccountSelector: ""
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Ingress
+    - Egress
