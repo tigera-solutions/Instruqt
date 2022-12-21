@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# install jq
+apt install jq -y
+
+
+# donwload cluster-reporter-pods.yaml
+curl -LJO https://raw.githubusercontent.com/JosephYostos/Compliance-workshop/main/04-Reports-Visualization/%20mainfest/cluster-reporter-pods.yaml
+
+
+# donwload script
+curl -LJO https://raw.githubusercontent.com/JosephYostos/Compliance-workshop/main/04-Reports-Visualization/%20mainfest/run-reports.sh
+chmod 777 run-reports.sh
