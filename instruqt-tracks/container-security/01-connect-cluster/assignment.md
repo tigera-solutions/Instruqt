@@ -45,7 +45,7 @@ timelimit: 900
 ---
 Welcome to Tigera's self-paced workshops. As part of this workshop, we will provide you with a Calico Cloud trial account! This account will automatically terminate after 24 hours.
 
-- Run `invite` in the terminal to your left and when prompted, enter your email address.
+- Run `invite` in the terminal to your left and when prompted, enter your work email address (work email address is required).
 - You will receive an invitation from the Calico Cloud environment via email. Accept the invitation by clicking the link included in the email.
 - As soon as you sign in to Calico Cloud, we will set up your demo application environment.
 
