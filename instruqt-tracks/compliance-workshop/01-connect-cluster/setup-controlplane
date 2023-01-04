@@ -2,7 +2,8 @@
 # Deploy Hipstershop and multitool
 sleep 5
 kubectl create namespace hipstershop
-kubectl apply -n hipstershop -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/main/release/kubernetes-manifests.yaml
+#kubectl apply -n hipstershop -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/main/release/kubernetes-manifests.yaml
+kubectl apply -n hipstershop -f https://raw.githubusercontent.com/googlecloudplatform/microservices-demo/v0.3.8/release/kubernetes-manifests.yaml
 sleep 5
 kubectl run multitool --image=wbitt/network-multitool
 kubectl run multitool -n hipstershop --image=wbitt/network-multitool
