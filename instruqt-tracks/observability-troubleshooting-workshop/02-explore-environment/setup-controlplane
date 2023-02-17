@@ -1,0 +1,14 @@
+#!/bin/bash
+
+kubectl patch felixconfiguration.p default -p '{"spec":{"flowLogsFlushInterval":"10s"}}'
+kubectl patch felixconfiguration.p default -p '{"spec":{"dnsLogsFlushInterval":"10s"}}'
+kubectl patch felixconfiguration.p default -p '{"spec":{"flowLogsFileAggregationKindForAllowed":1}}'
+
+##install update package and curl
+kubectl -n hipstershop exec -it $(kubectl -n hipstershop get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -- sh -c 'apt-get update && apt install curl -y'
+
+##create tiers and policies
+
+kubectl apply -f https://raw.githubusercontent.com/JosephYostos/test-repo/main/manifest/tiers.yaml
+kubectl apply -f https://raw.githubusercontent.com/JosephYostos/Compliance-workshop/main/03-security-policies/mainfest/2.2-pass-dns-default-deny-policy.yaml
+kubectl apply -f https://raw.githubusercontent.com/JosephYostos/Compliance-workshop/main/03-security-policies/mainfest/2.6-hipstershop-policy.yaml

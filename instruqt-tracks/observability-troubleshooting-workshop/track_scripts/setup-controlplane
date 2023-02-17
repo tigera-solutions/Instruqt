@@ -17,14 +17,14 @@ done
 #echo "source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
 
 # install Kubeadm 
-curl https://raw.githubusercontent.com/JosephYostos/kubeadm-installation/main/master.sh |bash
+curl https://raw.githubusercontent.com/JosephYostos/kubeadm-installation/main/master_125.sh |bash
 
 #export token
 kubeadm token list | awk 'NR == 2 {print $1}' > /token
 
 # install calico CNI
-kubectl create -f https://projectcalico.docs.tigera.io/archive/v3.22/manifests/tigera-operator.yaml
-kubectl create -f https://projectcalico.docs.tigera.io/archive/v3.22/manifests/custom-resources.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/tigera-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/custom-resources.yaml
 
 # setup Calico Cloud trial account
 kubectl apply -f https://installer.calicocloud.io/manifests/cc-operator/latest/deploy.yaml

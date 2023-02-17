@@ -1,7 +1,7 @@
 slug: observability-troubleshooting-workshop
-type: track
+id: scxpdlxqeyij
 title: Self-paced Observability and Troubleshooting Workshop for Containers and Kubernetes
-teaser: Identify and resolve security and performance issues quickly with Calico Cloud 
+teaser: Identify and resolve security and performance issues quickly with Calico Cloud
 description: |
   In this workshop, you will learn how to design and deploy best practices to secure your containers and Kubernetes environment. We will also show you how you can achieve compliance with regulatory frameworks, including but not limited to, PCI, SOC 2, and GDPR. In this workshop, you will implement:
 
@@ -21,7 +21,4 @@ owner: tigera
 developers:
 - dhiraj@tigera.io
 - joseph@tigera.io
-private: true
-published: false
-maintenance: false
-checksum: "4919994901153349791"
+checksum: "7373638312048064637"

@@ -17,7 +17,7 @@ done
 #echo "source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
 
 # install Kubeadm for worker node
-curl https://raw.githubusercontent.com/JosephYostos/kubeadm-installation/main/worker.sh |bash
+curl https://raw.githubusercontent.com/JosephYostos/kubeadm-installation/main/worker_125.sh |bash
 
 # join kubeadm cluster
 until [ -f /token ]
