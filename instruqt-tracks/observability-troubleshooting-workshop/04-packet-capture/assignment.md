@@ -3,10 +3,7 @@ slug: packet-capture
 id: opxrqjtpiozh
 type: challenge
 title: Dynamic Packet Capture for faster troubleshooting
-teaser: Dynamic Packet Capture is a self-service, on-demand tool for performing packet
-  capture for a specific pod or collection of pods. It integrates with Kubernetes
-  RBAC to limit and secure users’ access to the endpoints and namespaces assigned
-  to them.
+teaser: Fast, simplified troubleshooting for microservices and endpoints with secure user access based on roles and permissions.
 notes:
 - type: image
   url: ../assets/Module4.png
