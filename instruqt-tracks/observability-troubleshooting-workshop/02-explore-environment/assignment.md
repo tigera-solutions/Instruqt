@@ -2,7 +2,7 @@
 slug: explore-environment
 id: opgu6uivzcmo
 type: challenge
-title: Understanding Hipstershop deployment
+title: Understanding the Hipstershop deployment
 teaser: Get better visibility into your environment
 notes:
 - type: image
