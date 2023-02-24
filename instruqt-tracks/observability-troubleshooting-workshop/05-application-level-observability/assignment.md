@@ -2,13 +2,13 @@
 slug: application-level-observability
 id: cbnnpa58qr1l
 type: challenge
-title: Application level observability
-teaser: Analyze performance bottlenecks of layer 7 protocols.
+title: Application-level observability
+teaser: Analyze performance bottlenecks of application-level protocols.
 notes:
 - type: image
   url: ../assets/Module5.png
 tabs:
-- title: Shell
+- title: Shell  
   type: terminal
   hostname: controlplane
 - title: Calico Cloud
@@ -19,23 +19,23 @@ tabs:
 difficulty: basic
 timelimit: 900
 ---
-Calico Application Level Observability
+Calico application-level observability
 ===============
 
-Calico provides visibility into L7 traffic without the need for a service mesh. Calico will give you a centralized, all-encompassing view of service-to-service traffic in the Kubernetes cluster. Have a single pane of glass of all the application-layer traffic, broken down by service, response code, performance metrics, API calls, and application-level log data matched to networking-level data by default.
+Calico provides visibility into application-layer (L7) traffic without the need for a service mesh. Calico will give you a centralized, all-encompassing view of service-to-service traffic in the Kubernetes cluster. With just one window, you can view all  application-layer traffic, which are broken down by service, response code, performance metrics, API calls, and application-level log data matched to networking-level data by default.
 
 L7 logs are also key for detecting anomalous behaviors like attempts to access applications, restricted URLs, and scans for particular URLs.
 
 How does it work?
 ===============
 
-- Calico deploys an Envoy proxy as a daemonset, then collects L7 logs by sending the selected traffic through an Envoy proxy.
-- Application level observability is pre-enabled in this environment for the demo purpose. To learn how to enable it in your cluster, check our documentation.
-- Verify that application layer log collection is enabled using the following command:
+- Calico deploys an Envoy proxy as a DaemonSet, then collects L7 logs by sending the selected traffic through an Envoy proxy.
+- Application-level observability is pre-enabled in this environment for demonstration purposes. To learn how to enable it in your cluster, check our [documentation.](https://docs.tigera.io/calico-cloud/visibility/elastic/l7/configure)
+- Verify that application-layer log collection is enabled using the following command:
 ```bash
 kubectl get ApplicationLayer -o yaml | grep collectLogs:
 ```
-- Once we have the application layer log collection enabled, we select which service we wish to collect its logs by annotating the service.
+- Once we have the application-layer log collection enabled, we select which service we wish to collect its logs for by annotating the service.
 - In this lab, we annotated all the Histershp services. Check it using the following command:
 ```bash
 kubectl get svc -n hipstershop -o yaml| grep -Ev 'grpc|http' | grep -E 'name:|l7-logging'
@@ -68,12 +68,12 @@ projectcalico.org/l7-logging: "true"
 name: shippingservice
 ```
 
-Let's review and analyis the application layer logs for Hipstershop application.
+Let's review and analyze the application-layer logs for the Hipstershop application.
 
 Calico dashboard
 ===============
 As we discussed in module three, Calico provides two dashboards, a cluster-based dashboard and a namespace-based dashboard.
-In our scenario, we can use the namespace-based dashboard as we’re looking at the `Hipstershop` namespace.
+In our scenario, we can use the namespace-based dashboard when we look at the `Hipstershop` namespace.
 
 - From the Calico Cloud UI, click on **Dashboards** and select the `hipstershop` namespace.
 
@@ -87,25 +87,25 @@ URL Requests: This shows a list of URLs that the requests were made against, whi
 
 Service graph
 ===============
-The dynamic service and threat graph shows more details of the application level logs.
+The Dynamic Service and Threat Graph shows more details of the application-level logs.
 
 - In the Calico Cloud UI, click on the `Service Graph` icon on the left menu.
 - Select the `Default` view, then double-click the `hipstershop` namespace.
-- In the bottom pane you will see L7 logs in the `HTTP` tab.
+- In the bottom pane, you will see L7 logs in the `HTTP` tab.
 ![Image Description](../assets/l7-service-graph.png)
 
 Expand any of the requests to get all the information you need to troubleshoot any HTTP performance bottlenecks.
 
 Kibana dashboards and logs
 ===============
-Kibana is the frontend for Calico Cloud Elasticsearch, which is the logging infrastructure that centrally stores logs from all managed clusters.
+Kibana is the frontend for Calico Cloud Elasticsearch, which is the logging infrastructure that stores logs from all managed clusters in a centralized manner.
 
-Calico provides HTTP dashboard in kibana that includes application performance metrics for inscope Kubernetes services.
+Calico provides an HTTP dashboard in Kibana that includes application performance metrics for inscope Kubernetes services.
 
 To view the L7 HTTP dashboard:
 1. In the Manager UI left navbar, click `Kibana`.
 2. In the new Kibana browser, select `Dashboards` from the menu on the left.
-3. choose the "L7 HTTP Dashboard"
+3. Choose the "L7 HTTP Dashboard"
 ![Image Description](../assets/l7-kibana-1.png)
 
 You can display data within a specified time range. The default time range is 15 minutes, but you can customize it from the right corner.
@@ -125,7 +125,7 @@ Based on the HTTP request and response data, we can analyze the following:
 - L7 Top URLs
 - L7-search (raw HTTP logs)
 
-Kibana is part of calico cloud, so you don't need to install extra components. The dashboard will help you to discover any abnormal behaviour faster and analyze performance bottlenecks of your application-level traffic.
+Kibana is part of Calico Cloud, so you don't need to install extra components. The dashboard will help you to discover any abnormal behavior faster and analyze performance bottlenecks of your application-level traffic.
 
 🏁 Finish
 =========
