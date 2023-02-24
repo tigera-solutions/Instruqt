@@ -9,9 +9,10 @@ notes:
   contents: |
     Welcome to Tigera's self-paced workshops.
 
-    Troubleshooting containerized applications and Kubernetes platform is challenging work. In this use case workshop, you will learn how to efficiently manage, observe & troubleshoot your kubernetes and containerized applications with Calico.
+    Troubleshooting containerized applications and the Kubernetes platform is challenging work. 
+    In this use-case-based workshop, you will learn how to efficiently manage, observe, and troubleshoot your Kubernetes and containerized applications using Calico.
 
-    Click on the arrow on the right side (>) to read the use case.
+    Click on the right-side arrow (>) to read the use case. 
 - type: image
   url: ../assets/Module1.png
 tabs:
